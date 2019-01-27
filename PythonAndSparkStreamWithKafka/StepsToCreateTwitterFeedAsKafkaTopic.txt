@@ -1,0 +1,32 @@
+Create an App on the Twitter API website. Basically that will give you keys that you need to use the Twitter API.
+
+Then install Kafka. It’s as simple as downloading and unzipping it.
+
+Install Install kafka-python and twitter-python:
+
+pip install kafka-python
+pip install python-twitter
+pip install tweepy
+
+Start Zookeeper and Kafka from the Kafka install directory:
+
+bin/zookeeper-server-start.sh config/zookeeper.properties
+bin/kafka-server-start.sh config/server.properties
+
+Create a topic. We will create the topic for "#Metoo"
+
+bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic metoomovement
+
+Fill in the access keys you got from your Twitter API account and add them to this code below
+
+See the Producer.py module
+
+Now run it. Not only will it write messages to the screen, it will publish them to Kafka. The messages are in JSON format and will look something like
+
+You can test that topics are getting published in Kafka by using:
+
+bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic metomovement --from-beginning
+
+It should echo the same output.
+
+ 
