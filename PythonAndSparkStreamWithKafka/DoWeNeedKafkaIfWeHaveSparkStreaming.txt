@@ -1,1 +1,15 @@
 https://www.quora.com/What-is-the-need-of-Apache-Kafka-if-we-have-Spark-Streaming-and-Flume
+
+Well the tools have different purpose.
+
+-Apache Spark Streaming is processing part of data pipeline.
+
+-Apache Flume and Apache Kafka both are typically used for data ingestion.
+
+I think the appropriate question would be whether flume or Kafka ?
+
+Apart from data ingestion, I think the main advantage Apache Kafka provides is highly scalable distributed messaging system, which helps to decouple data pipelines from source and data processing. This simplifies the overall architecture of complex system.
+
+It is like using Kafka, same source of data can be used by n numbers of consumers without overloading or affecting existing source system.
+
+Hope this helps.
